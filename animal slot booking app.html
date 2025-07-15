@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Slot Booking App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Animal Hospital Slot Booking</h2>
+    <form id="bookingForm">
+      <label for="ownerName">Owner Name:</label>
+      <input type="text" id="ownerName" required>
+
+      <label for="animalType">Animal Type:</label>
+      <select id="animalType" required>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Bird">Bird</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="date">Appointment Date:</label>
+      <input type="date" id="date" required>
+
+      <label for="slot">Time Slot:</label>
+      <select id="slot" required>
+        <option value="9:00 AM">9:00 AM</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="11:00 AM">11:00 AM</option>
+        <option value="2:00 PM">2:00 PM</option>
+        <option value="3:00 PM">3:00 PM</option>
+      </select>
+
+      <button type="submit">Book Slot</button>
+    </form>
+    <p id="confirmation" style="text-align:center; color:green; margin-top:15px;"></p>
+  </div>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const ownerName = document.getElementById('ownerName').value;
+      const animalType = document.getElementById('animalType').value;
+      const date = document.getElementById('date').value;
+      const slot = document.getElementById('slot').value;
+      
+      const confirmationMessage = `Slot booked for ${animalType} (Owner: ${ownerName}) on ${date} at ${slot}`;
+      document.getElementById('confirmation').textContent = confirmationMessage;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
